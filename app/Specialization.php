@@ -5,21 +5,26 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Department
+ * Class Specialization
  * @package App
  */
-class Department extends Model
+class Specialization extends Model
 {
     /**
      * @var array
      */
-    protected $fillable = ['title', 'description', 'url'];
+    protected $fillable = ['specialization'];
+
+    /**
+     * @var bool
+     */
+    public $timestamps = false;
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function doctors()
     {
-        return $this->hasMany(Doctor::class, 'department_id', 'id');
+        return $this->hasMany(Doctor::class, 'specialization_id', 'id');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDoctorsTable extends Migration
+class CreateNewsCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,10 @@ class CreateDoctorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('doctors', function (Blueprint $table) {
+        Schema::create('news_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('department_id');
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('specialization_id');
-            $table->unsignedTinyInteger('experience');
-            $table->string('photo');
             $table->string('title');
-            $table->text('info');
             $table->string('url');
-            $table->timestamps();
         });
     }
 
@@ -34,6 +27,6 @@ class CreateDoctorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doctors');
+        Schema::dropIfExists('news_categories');
     }
 }

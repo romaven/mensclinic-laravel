@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * Class CreateArticlesTable
+ */
 class CreateArticlesTable extends Migration
 {
     /**
@@ -15,6 +18,11 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('category_id');
+            $table->string('title');
+            $table->text('body');
+            $table->string('url');
             $table->timestamps();
         });
     }
