@@ -678,13 +678,13 @@ nav.main-menu ul > li ul {
     left: 0;
     width: 190px;
     display: none;
-    background-color: #67c9e0;
+    background-color: #579e41;
 }
 nav.main-menu ul > li ul li {
     list-style: none;
     float: none;
     position: relative;
-    border-bottom: 1px solid #73d1e7;
+    border-bottom: 1px solid #579e41;
 }
 nav.main-menu ul > li ul li a {
     font-size: 14px;
@@ -692,7 +692,7 @@ nav.main-menu ul > li ul li a {
     padding: 10px 20px;
 }
 nav.main-menu ul > li ul li:hover a {
-    background-color: #53c3dd;
+    background-color: #579e41;
 }
 nav.main-menu ul > li ul li ul {
     position: absolute;
@@ -711,7 +711,7 @@ nav.main-menu ul > li.two-cols-menu ul li ul {
 }
 nav.main-menu ul > li:hover > a,
 nav.main-menu ul > .current-menu-item > a {
-    background-color: #67c9e0;
+    background-color: #579e41;
     color: #fff;
 }
 #header.stick {
@@ -1571,7 +1571,7 @@ nav.main-menu ul > .current-menu-item > a {
     color: #fff;
 }
 #main-footer .widget input[type="submit"]:hover {
-    background-color: #4dbed9;
+    background-color: #579e41;
 }
 #main-footer .widget .wp-email-capture-widget {
     margin: 20px 0;
@@ -1714,15 +1714,15 @@ a#scroll-top:hover {
     line-height: 36px;
 }
 .doctors-posts .social-icon ul li:hover {
-    background-color: #66c9e0;
+    background-color: #579e41;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 .doctors-posts .social-icon ul li.twitter-icon:hover {
-    background-color: #55acee;
+    background-color: #579e41;
 }
 .doctors-posts .social-icon ul li.skype-icon:hover {
-    background-color: #009EE5;
+    background-color: #579e41;
 }
 .doctors-posts .social-icon ul li.facebook-icon:hover {
     background-color: #425E9A;
@@ -2838,7 +2838,7 @@ a.avatar img {
     transition: none;
 }
 .gallery-single #carousel .flex-direction-nav a:hover {
-    background-color: #67c9e0;
+    background-color: #579e41;
     background-position: 19px -31px;
 }
 .gallery-single #carousel .flex-direction-nav a:before {

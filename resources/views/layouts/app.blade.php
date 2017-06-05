@@ -204,20 +204,21 @@
                             class="current-menu-item menu-item menu-item-type-post_type menu-item-object-page page_item page-item-11 current_page_item menu-item-has-children menu-item-352">
                             <a href="/">Главная</a></li>
                         <li id="menu-item-318"
-                            class="current-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-318">
+                            class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-318">
                             <a href="/about">О клинике</a></li>
                         <li id="menu-item-307"
-                            class="current-menu-item menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-307">
+                            class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-307">
                             <a href="/doctors">Врачи</a></li>
                         <li id="menu-item-308"
                             class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-308">
                             <a href="/service">Услуги</a></li>
-                        <li id="menu-item-299"
-                            class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-299">
-                            <a href="/news">Новости</a></li>
-                        <li id="menu-item-318"
-                            class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-318">
-                            <a href="/video">Видео</a></li>
+                        <li id="menu-item-307" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-307"><a href="#">Публикации</a>
+                            <ul class="sub-menu" style="display: none;">
+                                <li id="menu-item-306" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-306"><a href="#">Новости</a></li>
+                                <li id="menu-item-306" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-306"><a href="#">Статьи</a></li>
+                                <li id="menu-item-306" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-306"><a href="#">Видео</a></li>
+                            </ul>
+                        </li>
                         <li id="menu-item-318"
                             class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-318">
                             <a href="/contact">Контакты</a></li>
