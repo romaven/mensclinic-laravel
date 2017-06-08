@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin/dashboard', 'Admin\DashboardController@dashboard')->name('admin.dashboard');
+Route::resource('/admin/doctors', 'Admin\DoctorController');
+Route::resource('/admin/department', 'Admin\DepartmentController');
