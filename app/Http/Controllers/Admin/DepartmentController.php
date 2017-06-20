@@ -15,7 +15,9 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        return view('admin.department.index');
+        $deps = Department::all();
+
+        return view('admin.department.index', ['departments' => $deps]);
     }
 
     /**
@@ -25,7 +27,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.department.create');
     }
 
     /**
@@ -36,7 +38,23 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'url' => 'required',
+            'description' => 'required',
+        ], [
+            'name.required' => 'Название департамента должно быть заполнено',
+            'url.required' => 'Url адрес должен быть заполнен',
+            'description.required' => 'Описание департамента должно быть заполнено',
+        ]);
+
+        Department::create([
+            'name' => $request->get('name'),
+            'url' => $request->get('url'),
+            'description' => $request->get('description'),
+        ]);
+
+        return redirect()->route('department.index')->with('success', 'Департамент добавлен');
     }
 
     /**

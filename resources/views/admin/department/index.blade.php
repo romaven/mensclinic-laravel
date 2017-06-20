@@ -3,11 +3,16 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
+            @if (session('success'))
+                <span class="alert alert-success">
+                    <strong>{{ session('success') }}</strong>
+                </span>
+            @endif
             <div class="box box-success">
                 <div class="box-header with-border">
                     <h3 class="box-title">Отделения</h3>
                     <div class="box-tools pull-right">
-                        <a href="" class="btn btn-success">Добавить отделение</a>
+                        <a href="{{ route('department.create') }}" class="btn btn-success">Добавить отделение</a>
                     </div>
                 </div>
                 <div class="box-body">
@@ -21,14 +26,18 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Оториноларингология</td>
-                            <td class="text-center">1</td>
-                            <td>
-                                <a href="" class="btn btn-success btn-sm">редактировать</a>
-                                <a href="" class="btn btn-warning btn-sm">удалить</a>
-                            </td>
-                        </tr>
+                        @foreach($departments as $department)
+                            <tr>
+                                <td>{{ $department->name }}</td>
+                                <td class="text-center">{{ count($department->doctors) }}</td>
+                                <td>
+                                    <a href="{{ route('department.edit', ['id' => $department->id]) }}"
+                                       class="btn btn-success btn-sm">редактировать</a>
+                                    <a href="{{ route('department.destroy', ['id' => $department->id]) }}"
+                                       class="btn btn-warning btn-sm">удалить</a>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                         <tfoot>
                         <tr>

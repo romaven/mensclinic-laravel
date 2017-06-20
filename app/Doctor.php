@@ -15,7 +15,7 @@ class Doctor extends Model
      */
     protected $fillable = [
         'department_id',
-        'user_id',
+        'full_name',
         'specialization_id',
         'experience',
         'photo',
@@ -23,14 +23,6 @@ class Doctor extends Model
         'info',
         'url'
     ];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id', 'id');
-    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

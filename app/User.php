@@ -32,14 +32,6 @@ class User extends Authenticatable
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function doctor()
-    {
-        return $this->hasOne(Doctor::class, 'user_id', 'id');
-    }
-
-    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function news()
