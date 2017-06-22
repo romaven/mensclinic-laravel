@@ -18,6 +18,7 @@ class CreateDepartmentsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('url');
+            $table->string('short');
             $table->timestamps();
         });
     }
