@@ -7,7 +7,7 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">Врачи</h3>
                     <div class="box-tools pull-right">
-                        <a href="" class="btn btn-success">Добавить врача</a>
+                        <a href="{{ route('doctor.create') }}" class="btn btn-success">Добавить врача</a>
                     </div>
                 </div>
                 <div class="box-body">
@@ -22,21 +22,25 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Кутенко Ирина Владимировна</td>
-                            <td>Оториноларингология</td>
-                            <td>Оториноларинголог</td>
-                            <td>
-                                <a href="" class="btn btn-success btn-sm">редактировать</a>
-                                <a href="" class="btn btn-warning btn-sm">удалить</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Подборнова Елена Александровна</td>
-                            <td>Оториноларингология</td>
-                            <td>Оториноларинголог</td>
-                            <td>X</td>
-                        </tr>
+                        @foreach($doctors as $doctor)
+                            <tr>
+                                <td>{{ $doctor->full_name }}</td>
+                                <td>{{ $doctor->name }}</td>
+                                <td>{{ $doctor->specialization }}</td>
+                                <td>
+                                    <a href="{{ route('doctor.edit', ['id' => $doctor->id]) }}"
+                                       class="btn btn-success btn-sm">редактировать</a>
+                                    <a href="#" data-toggle="modal" data-target="#modal-danger-{{ $doctor->id }}"
+                                       class="btn btn-warning btn-sm"
+                                       onclick="deleteDoctor(
+                                               '{{ $doctor->id }}',
+                                               '{{ $doctor->full_name }}',
+                                               '{{ route('doctor.destroy', ['id' => $doctor->id]) }}'
+                                               )">удалить</a>
+                                </td>
+                                <div id="delete-doctor-{{ $doctor->id }}"></div>
+                            </tr>
+                        @endforeach
                         </tbody>
                         <tfoot>
                         <tr>
@@ -47,7 +51,6 @@
                         </tr>
                         </tfoot>
                     </table>
-
                 </div>
             </div>
         </div>
@@ -76,6 +79,33 @@
             ]
         });
     });
+</script>
+<script>
+    function deleteDoctor(id, name, action) {
+        var modal;
+
+        modal = '<div class="modal modal-danger fade" id="modal-danger-' + id + '">\
+            <div class="modal-dialog">\
+            <div class="modal-content">\
+            <div class="modal-header">\
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
+            <span aria-hidden="true">&times;</span></button>\
+        <h4 class="modal-title">Вы действительно хотите удалить врача?</h4>\
+        </div>\
+        <div class="modal-body">\
+            <p>' + name + '</p>\
+        </div>\
+        <div class="modal-footer">\
+            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Отмена</button>\
+            <form action="' + action + '" method="post">{{ csrf_field() }}{{ method_field('DELETE') }}<button type="submit" class="btn btn-outline">Удалить</button></form>\
+        </div>\
+        </div>\
+        </div>\
+        </div>\
+        ';
+
+        $('#delete-doctor-' + id).html(modal);
+    }
 </script>
 @endpush
 

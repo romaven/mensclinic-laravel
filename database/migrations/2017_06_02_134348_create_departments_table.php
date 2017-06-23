@@ -16,9 +16,11 @@ class CreateDepartmentsTable extends Migration
         Schema::create('departments', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->text('description');
+            $table->text('info');
             $table->string('url');
             $table->string('short');
+            $table->string('keywords');
+            $table->string('description');
             $table->timestamps();
         });
     }

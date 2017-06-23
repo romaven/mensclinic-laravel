@@ -24,9 +24,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     -->
     <link rel="stylesheet" href="/admin/dist/css/skins/skin-green.min.css">
 
-    @stack('styles')
+@stack('styles')
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -82,14 +82,18 @@ desired effect
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs">Администратор</span>
+                            <span class="hidden-xs">{{ auth()->user()->name }}</span>
                         </a>
                         <ul class="dropdown-menu">
 
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Выйти</a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                          style="display: none;">{{ csrf_field() }}</form>
                                 </div>
                             </li>
                         </ul>
@@ -109,8 +113,9 @@ desired effect
                 <li class="header">Меню</li>
                 <!-- Optionally, you can add icons to the links -->
                 <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Главная</span></a></li>
-                <li><a href="{{ route('department.index') }}"><i class="fa fa-hospital-o"></i> <span>Департаменты</span></a></li>
-                <li><a href="{{ route('doctors.index') }}"><i class="fa fa-user-md"></i> <span>Врачи</span></a></li>
+                <li><a href="{{ route('department.index') }}"><i class="fa fa-hospital-o"></i> <span>Департаменты</span></a>
+                </li>
+                <li><a href="{{ route('doctor.index') }}"><i class="fa fa-user-md"></i> <span>Врачи</span></a></li>
                 <li><a href="#"><i class="fa fa-pencil-square"></i> <span>Новости</span></a></li>
                 <li><a href="#"><i class="fa fa-play"></i> <span>Видео</span></a></li>
                 <li><a href="#"><i class="fa fa-pencil"></i> <span>Статьи</span></a></li>
@@ -121,15 +126,15 @@ desired effect
                 <li class="header">Навигация</li>
                 <li><a href="/" target="_blank"><i class="fa fa-desktop"></i> <span>Перейти на сайт</span></a></li>
                 {{--<li class="treeview">--}}
-                    {{--<a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>--}}
-                        {{--<span class="pull-right-container">--}}
-              {{--<i class="fa fa-angle-left pull-right"></i>--}}
-            {{--</span>--}}
-                    {{--</a>--}}
-                    {{--<ul class="treeview-menu">--}}
-                        {{--<li><a href="#">Link in level 2</a></li>--}}
-                        {{--<li><a href="#">Link in level 2</a></li>--}}
-                    {{--</ul>--}}
+                {{--<a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>--}}
+                {{--<span class="pull-right-container">--}}
+                {{--<i class="fa fa-angle-left pull-right"></i>--}}
+                {{--</span>--}}
+                {{--</a>--}}
+                {{--<ul class="treeview-menu">--}}
+                {{--<li><a href="#">Link in level 2</a></li>--}}
+                {{--<li><a href="#">Link in level 2</a></li>--}}
+                {{--</ul>--}}
                 {{--</li>--}}
             </ul>
             <!-- /.sidebar-menu -->
@@ -156,7 +161,7 @@ desired effect
         </section>
         <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->jlyf
+    <!-- /.content-wrapper -->
 
     <!-- Main Footer -->
     <footer class="main-footer">

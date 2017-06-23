@@ -16,12 +16,15 @@ class Doctor extends Model
     protected $fillable = [
         'department_id',
         'full_name',
-        'specialization_id',
+        'specialization',
         'experience',
         'photo',
-        'title',
         'info',
-        'url'
+        'url',
+        'description',
+        'keywords',
+        'show_in_catalog',
+        'show_in_main_page'
     ];
 
     /**
@@ -38,5 +41,15 @@ class Doctor extends Model
     public function department()
     {
         return $this->belongsTo(Department::class, 'department_id', 'id');
+    }
+
+    /**
+     * @return string
+     */
+    public function getNameAttribute()
+    {
+        if ($this->attributes['department_id'] === 0) return 'Врач не добавлен ни в одно отделене';
+
+        return $this->department->name;
     }
 }

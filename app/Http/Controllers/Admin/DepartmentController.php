@@ -19,9 +19,9 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        $deps = Department::all();
+        $departments = Department::all();
 
-        return view('admin.department.index', ['departments' => $deps]);
+        return view('admin.department.index', ['departments' => $departments]);
     }
 
     /**
@@ -44,24 +44,27 @@ class DepartmentController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'url' => 'required',
-            'description' => 'required',
+            'url' => 'required|unique:departments',
+            'info' => 'required',
             'short' => 'required',
         ], [
-            'name.required' => 'Название департамента должно быть заполнено',
+            'name.required' => 'Название отделения должно быть заполнено',
             'url.required' => 'Url адрес должен быть заполнен',
             'short.required' => 'Краткое описание должено быть заполнено',
-            'description.required' => 'Описание департамента должно быть заполнено',
+            'info.required' => 'Описание отделения должно быть заполнено',
+            'url.unique' => 'Url уже используется, возможно отделение уже добавлено',
         ]);
 
         Department::create([
             'name' => $request->get('name'),
             'url' => $request->get('url'),
             'short' => $request->get('short'),
+            'info' => $request->get('info'),
             'description' => $request->get('description'),
+            'keywords' => $request->get('keywords'),
         ]);
 
-        return redirect()->route('department.index')->with('success', 'Департамент добавлен');
+        return redirect()->route('department.index')->with('success', 'Отделение добавлено');
     }
 
     /**
@@ -98,20 +101,22 @@ class DepartmentController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'url' => 'required',
-            'description' => 'required',
+            'info' => 'required',
             'short' => 'required',
         ], [
             'name.required' => 'Название департамента должно быть заполнено',
             'url.required' => 'Url адрес должен быть заполнен',
             'short.required' => 'Краткое описание должено быть заполнено',
-            'description.required' => 'Описание департамента должно быть заполнено',
+            'info.required' => 'Описание департамента должно быть заполнено',
         ]);
 
         $department->update([
             'name' => $request->get('name'),
             'url' => $request->get('url'),
             'short' => $request->get('short'),
+            'info' => $request->get('info'),
             'description' => $request->get('description'),
+            'keywords' => $request->get('keywords'),
         ]);
 
         return redirect()->route('department.index')->with('success', 'Департамент обновлен');
