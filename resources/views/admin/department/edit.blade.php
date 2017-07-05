@@ -44,16 +44,28 @@
                                 </span>
                             @endif
                         </div>
-                        <div class="form-group col-md-10 col-md-offset-1{{ $errors->has('description') ? ' has-error' : '' }}">
-                            <label for="description">Описание</label>
-                            <textarea name="description" id="" rows="5" class="form-control"
-                                      placeholder="Описание департамента">{{ $department->description }}</textarea>
+                        <div class="form-group col-md-10 col-md-offset-1{{ $errors->has('info') ? ' has-error' : '' }}">
+                            <label for="info">Описание</label>
+                            <textarea name="info" id="" rows="5" class="form-control"
+                                      placeholder="Описание департамента">{{ $department->info }}</textarea>
 
-                            @if ($errors->has('description'))
+                            @if ($errors->has('info'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('description') }}</strong>
+                                    <strong>{{ $errors->first('info') }}</strong>
                                 </span>
                             @endif
+                        </div>
+                        <div class="form-group col-md-10 col-md-offset-1">
+                            <label for="keywords">SEO: Ключевые слова</label>
+                            <input name="keywords" class="form-control" type="text"
+                                   placeholder="Ключевые слова через запятую"
+                                   value="{{ $department->keywords }}" id="keywords" maxlength="255">
+                        </div>
+                        <div class="form-group col-md-10 col-md-offset-1">
+                            <label for="description">SEO: Описание</label>
+                            <input name="description" class="form-control" type="text"
+                                   placeholder="Описание (до 255  символов)"
+                                   value="{{ $department->description }}" id="description" maxlength="255">
                         </div>
                         <div class="form-group col-md-10 col-md-offset-1">
                             <input type="submit" class="btn" value="Обновить">

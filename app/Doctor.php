@@ -30,14 +30,6 @@ class Doctor extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function specializations()
-    {
-        return $this->belongsTo(Specialization::class, 'specialization_id', 'id');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function department()
     {
         return $this->belongsTo(Department::class, 'department_id', 'id');

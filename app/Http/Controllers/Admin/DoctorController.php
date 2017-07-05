@@ -6,6 +6,8 @@ use App\Department;
 use App\Doctor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class DoctorController extends Controller
 {
@@ -59,7 +61,16 @@ class DoctorController extends Controller
         $path = '';
         if ($request->hasFile('photo') && $request->file('photo')->isValid()) {
             $photo = $request->get('url') . '.' . $request->photo->extension();
-            $path = $request->photo->storeAs('doctors', $photo);
+            $saved = $request->photo->storeAs('doctors', $photo);
+            $img = Image::make(Storage::disk('local')->get($saved));
+            $img->fit(700, 500, function ($constraint) {
+                $constraint->upsize();
+            })->save(public_path('images/doctors/' . $photo));
+            $img->resize(300, 200, function ($constraint) {
+                $constraint->upsize();
+            })->save(public_path('images/doctors/thumb-' . $photo, 80));
+            Storage::delete($saved);
+            $path = $photo;
         }
 
         Doctor::create([
@@ -98,7 +109,9 @@ class DoctorController extends Controller
      */
     public function edit(Doctor $doctor)
     {
-        //
+        $departments = Department::all();
+
+        return view('admin.doctors.edit', compact('doctor', 'departments'));
     }
 
     /**
@@ -110,7 +123,52 @@ class DoctorController extends Controller
      */
     public function update(Request $request, Doctor $doctor)
     {
-        //
+        $this->validate($request, [
+            'full_name' => 'required',
+            'url' => 'required',
+            'info' => 'required',
+            'specialization' => 'required',
+            'photo' => 'image:jpeg,jpg,png',
+        ], [
+            'full_name.required' => 'Полное имя врача должно быть заполнено',
+            'url.required' => 'Url адрес должен быть заполнен',
+            'url.unique' => 'Url уже используется, возможно врач уже добавлен',
+            'info.required' => 'Информация о враче должна быть заполнена',
+            'specialization.required' => 'Заголовок должен быть заполнен',
+            'photo.image' => 'Разрешенные форматы фотографий jpeg, jpg, png',
+        ]);
+
+        if ($request->hasFile('photo') && $request->file('photo')->isValid()) {
+            $photo = $request->get('url') . '.' . $request->photo->extension();
+            $saved = $request->photo->storeAs('doctors', $photo);
+            $img = Image::make(Storage::disk('local')->get($saved));
+            $img->fit(700, 500, function ($constraint) {
+                $constraint->upsize();
+            })->save(public_path('images/doctors/' . $photo));
+            $img->resize(300, 200, function ($constraint) {
+                $constraint->upsize();
+            })->save(public_path('images/doctors/thumb-' . $photo, 80));
+            Storage::delete($saved);
+            $path = $photo;
+        } else {
+            $path = $doctor->photo;
+        }
+
+        $doctor->update([
+            'full_name' => $request->get('full_name'),
+            'url' => $request->get('url'),
+            'info' => $request->get('info'),
+            'experience' => $request->get('experience'),
+            'department_id' => $request->get('department_id'),
+            'specialization' => $request->get('specialization'),
+            'photo' => $path,
+            'show_in_catalog' => $request->get('show_in_catalog', 0),
+            'show_in_main_page' => $request->get('show_in_main_page', 0),
+            'description' => $request->get('description'),
+            'keywords' => $request->get('keywords'),
+        ]);
+
+        return redirect()->route('doctor.index')->with('success', 'Информация о враче обновлена');
     }
 
     /**
@@ -121,6 +179,10 @@ class DoctorController extends Controller
      */
     public function destroy(Doctor $doctor)
     {
-        //
+        unlink(public_path('images/doctors/' . $doctor->photo));
+        unlink(public_path('images/doctors/thumb-' . $doctor->photo));
+        $doctor->delete();
+
+        return redirect()->route('doctor.index')->with('success', 'Врач удален');
     }
 }

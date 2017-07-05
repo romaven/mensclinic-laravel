@@ -22,6 +22,7 @@ Route::group([
     'namespace' => 'Admin',
     'middleware' => 'auth',
 ], function () {
+    Route::get('/', 'DashboardController@dashboard');
     Route::get('dashboard', 'DashboardController@dashboard')->name('admin.dashboard');
     Route::resource('doctor', 'DoctorController');
     Route::resource('department', 'DepartmentController');
