@@ -201,17 +201,17 @@
                 <nav class="main-menu" style="margin-top: 15px">
                     <ul id="menu-main-menu" class="header-nav clearfix">
                         <li id="menu-item-352"
-                            class="current-menu-item menu-item menu-item-type-post_type menu-item-object-page page_item page-item-11 current_page_item menu-item-has-children menu-item-352">
-                            <a href="/">Главная</a></li>
+                            class="@if($menu == 'main') current-menu-item @endif menu-item menu-item-type-post_type menu-item-object-page page_item page-item-11 current_page_item menu-item-has-children menu-item-352">
+                            <a href="{{ route('site.main') }}">Главная</a></li>
                         <li id="menu-item-318"
-                            class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-318">
+                            class="@if($menu == 'about') current-menu-item @endif menu-item menu-item-type-post_type menu-item-object-page menu-item-318">
                             <a href="/about">О клинике</a></li>
                         <li id="menu-item-307"
-                            class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-307">
-                            <a href="/doctors">Врачи</a></li>
-                        <li id="menu-item-308"
-                            class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-308">
-                            <a href="/service">Услуги</a></li>
+                            class="@if($menu == 'doctors') current-menu-item @endif menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-307">
+                            <a href="{{ route('site.doctors') }}">Врачи</a></li>
+                        {{--<li id="menu-item-308"--}}
+                            {{--class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-308">--}}
+                            {{--<a href="/service">Услуги</a></li>--}}
                         <li id="menu-item-307" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-307"><a href="#">Публикации</a>
                             <ul class="sub-menu" style="display: none;">
                                 <li id="menu-item-306" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-306"><a href="#">Новости</a></li>
@@ -220,8 +220,8 @@
                             </ul>
                         </li>
                         <li id="menu-item-318"
-                            class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-318">
-                            <a href="/contact">Контакты</a></li>
+                            class="@if($menu == 'contact') current-menu-item @endif menu-item menu-item-type-post_type menu-item-object-page menu-item-318">
+                            <a href="{{ route('site.contact') }}">Контакты</a></li>
                     </ul>
                 </nav>
 

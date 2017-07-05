@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'SiteController@index')->name('site.main');
+Route::get('doctors', 'SiteController@doctors')->name('site.doctors');
+Route::get('doctor/{url}', 'SiteController@doctor')->name('site.doctor');
+Route::get('contact', 'SiteController@contact')->name('site.contact');
+Route::get('about', 'SiteController@about')->name('site.about');
 
 Auth::routes();
 

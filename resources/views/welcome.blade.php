@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['menu' => 'main'])
 
 @section('content')
     <div class="home-slider clearfix">
@@ -338,79 +338,19 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 ">
                     <div class="slogan-section animated fadeInUp clearfix">
                         <h2>Наши <span>врачи</span></h2>
-
                         <p>Только лучшие специалисты своего дела.</p></div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="owl-carousel">
-                    <div>&nbsp;<img width="700" height="500" src="/images/doctor-5.jpg"
-                                    class="attachment-gallery-post-single wp-post-image"
-                                    alt="Подборнова Елена Александровна"/><br>Подборнова Елена Александровна
-                    </div>
-                    <div>&nbsp;<img width="700" height="500" src="/images/doctor-1.jpg"
-                                    class="attachment-gallery-post-single wp-post-image"
-                                    alt="Кутенко Ирина Владимировна"/><br>Кутенко Ирина Владимировна
-                    </div>
-                    <div>&nbsp;<img width="670" height="500" src="/images/doctor-23.jpg"
-                                    class="attachment-gallery-post-single wp-post-image"
-                                    alt="Малгаждаров Нурлан Асылболатович"/><br>Малгаждаров Нурлан Асылболатович
-                    </div>
-                    <div>&nbsp;<img width="670" height="500" src="/images/doctor-2.jpg"
-                                    class="attachment-gallery-post-single wp-post-image" alt="Катрук Татьяна Павловна"/><br>Катрук
-                        Татьяна Павловна
-                    </div>
-                    <div>&nbsp;<img width="670" height="500" src="/images/doctor-17.jpg"
-                                    class="attachment-gallery-post-single wp-post-image"
-                                    alt="Чухатина Светлана Ильинична"/><br>Чухатина
-                        Светлана Ильинична
-                    </div>
-                    <div>&nbsp;<img width="670" height="500" src="/images/doctor-14.jpg"
-                                    class="attachment-gallery-post-single wp-post-image"
-                                    alt="Глобенко Ольга Викторовна"/><br>Глобенко Ольга Викторовна
-                    </div>
-                    <div>&nbsp;<img width="670" height="500" src="/images/doctor-8.jpg"
-                                    class="attachment-gallery-post-single wp-post-image"
-                                    alt="Жумабаева Айзада Жамашевна"/><br>Жумабаева Айзада Жамашевна
-                    </div>
-                    <div>&nbsp;<img width="670" height="500" src="/images/doctor-7.jpg"
-                                    class="attachment-gallery-post-single wp-post-image"
-                                    alt="Ерашова Надежда Валерьевна"/><br>Ерашова Надежда Валерьевна
-                    </div>
-                    <div>&nbsp;<img width="670" height="500" src="/images/doctor-13.jpg"
-                                    class="attachment-gallery-post-single wp-post-image"
-                                    alt="Маликзатова Бакыт Хамитовна"/><br>Маликзатова
-                        Бакыт Хамитовна
-                    </div>
-                    <div>&nbsp;<img width="670" height="500" src="/images/doctor-18.jpg"
-                                    class="attachment-gallery-post-single wp-post-image"
-                                    alt="Кириченко Ольга Яковлевна"/><br>Кириченко Ольга Яковлевна
-                    </div>
-                    <div>&nbsp;<img width="670" height="500" src="/images/doctor-20.jpg"
-                                    class="attachment-gallery-post-single wp-post-image"
-                                    alt="Бровикова Наталья Геннадьевна"/><br>Бровикова Наталья Геннадьевна
-                    </div>
-                    <div>&nbsp;<img width="670" height="500" src="/images/doctor-16.jpg"
-                                    class="attachment-gallery-post-single wp-post-image"
-                                    alt="Войчишин Владимир Владимирович"/><br>Войчишин Владимир Владимирович
-                    </div>
-                    <div>&nbsp;<img width="670" height="500" src="/images/doctor-11.jpg"
-                                    class="attachment-gallery-post-single wp-post-image"
-                                    alt="Ляпейкова Светлана Васильевна"/><br>Ляпейкова Светлана Васильевна
-                    </div>
-                    <div>&nbsp;<img width="670" height="500" src="/images/doctor-12.jpg"
-                                    class="attachment-gallery-post-single wp-post-image"
-                                    alt="Колчанова Татьяна Васильевна"/><br>Колчанова Татьяна Васильевна
-                    </div>
-                    <div>&nbsp;<img width="670" height="500" src="/images/doctor-25.jpg"
-                                    class="attachment-gallery-post-single wp-post-image"
-                                    alt="Таспанова Мария Жуманиязовна"/><br>Таспанова Мария Жуманиязовна
-                    </div>
-                    <div>&nbsp;<img width="670" height="500" src="/images/doctor-30.jpg"
-                                    class="attachment-gallery-post-single wp-post-image"
-                                    alt="Абжанова Альфия Ермековна"/><br>Абжанова Альфия Ермековна
-                    </div>
+                    @foreach($doctors as $doctor)
+                        <div>&nbsp;
+                            <img src="/images/doctors/thumb-{{ $doctor->photo }}"
+                                 class="attachment-gallery-post-single wp-post-image"
+                                 alt="{{ $doctor->full_name }}"/><br><span class="small">{{ $doctor->specialization }}</span><br>{{ $doctor->full_name }}
+                        </div>
+                    @endforeach
+
                 </div>
 
 

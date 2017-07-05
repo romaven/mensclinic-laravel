@@ -68,7 +68,7 @@ class DoctorController extends Controller
             })->save(public_path('images/doctors/' . $photo));
             $img->resize(300, 200, function ($constraint) {
                 $constraint->upsize();
-            })->save(public_path('images/doctors/thumb-' . $photo, 80));
+            })->save(public_path('images/doctors/thumb-' . $photo));
             Storage::delete($saved);
             $path = $photo;
         }
@@ -147,7 +147,7 @@ class DoctorController extends Controller
             })->save(public_path('images/doctors/' . $photo));
             $img->resize(300, 200, function ($constraint) {
                 $constraint->upsize();
-            })->save(public_path('images/doctors/thumb-' . $photo, 80));
+            })->save(public_path('images/doctors/thumb-' . $photo));
             Storage::delete($saved);
             $path = $photo;
         } else {
