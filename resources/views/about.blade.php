@@ -17,7 +17,6 @@
             </div>
         </div>
     </div>
-
     <div class="blog-page default-page service-page clearfix">
         <div class="container">
             <div class="row">
