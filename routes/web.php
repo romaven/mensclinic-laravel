@@ -16,6 +16,7 @@ Route::get('doctors', 'SiteController@doctors')->name('site.doctors');
 Route::get('doctor/{url}', 'SiteController@doctor')->name('site.doctor');
 Route::get('contact', 'SiteController@contact')->name('site.contact');
 Route::get('about', 'SiteController@about')->name('site.about');
+Route::post('uploader/images', 'UploaderController@get')->name('uploader.image.get');
 
 Auth::routes();
 
@@ -28,4 +29,5 @@ Route::group([
     Route::get('dashboard', 'DashboardController@dashboard')->name('admin.dashboard');
     Route::resource('doctor', 'DoctorController');
     Route::resource('department', 'DepartmentController');
+    Route::resource('news', 'NewsController');
 });

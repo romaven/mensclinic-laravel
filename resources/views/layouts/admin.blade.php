@@ -116,7 +116,7 @@ desired effect
                 <li><a href="{{ route('department.index') }}"><i class="fa fa-hospital-o"></i> <span>Департаменты</span></a>
                 </li>
                 <li><a href="{{ route('doctor.index') }}"><i class="fa fa-user-md"></i> <span>Врачи</span></a></li>
-                <li><a href="#"><i class="fa fa-pencil-square"></i> <span>Новости</span></a></li>
+                <li><a href="{{ route('news.index') }}"><i class="fa fa-pencil-square"></i> <span>Новости</span></a></li>
                 <li><a href="#"><i class="fa fa-play"></i> <span>Видео</span></a></li>
                 <li><a href="#"><i class="fa fa-pencil"></i> <span>Статьи</span></a></li>
                 <li><a href="#"><i class="fa fa-sticky-note"></i> <span>Услуги</span></a></li>
