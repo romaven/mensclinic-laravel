@@ -347,7 +347,8 @@
                         <div>&nbsp;
                             <img src="/images/doctors/thumb-{{ $doctor->photo }}"
                                  class="attachment-gallery-post-single wp-post-image"
-                                 alt="{{ $doctor->full_name }}"/><br><span class="small">{{ $doctor->specialization }}</span><br>{{ $doctor->full_name }}
+                                 alt="{{ $doctor->full_name }}"/><br><span
+                                    class="small">{{ $doctor->specialization }}</span><br>{{ $doctor->full_name }}
                         </div>
                     @endforeach
 
@@ -365,87 +366,78 @@
 
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="slogan-section animated fadeInUp clearfix">
-                        <h2><a href="https://mensclinic.kz/news">Новости</a> <span>нашего медицинского центра</span>
+                        <h2><a href="https://mensclinic.kz/news">Публикации</a> <span>нашего медицинского центра</span>
                         </h2>
 
                         <p>Будь в курсе последних событий</p></div>
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-6 ">
-                            <article class="common-blog-post hentry animated fadeInRight clearfix">
+                            <article class="hentry animated fadeInRight clearfix">
                                 <figure>
-                                    <a href="https://mensclinic.kz/news/trening-halilja-shajhatdinova-moe-vysshee-ja-mozhet-vse"
-                                       title="Image Post Format">
-                                        <img width="732" height="447" src="/images/Medtsentr_345x345.jpg"
-                                             class="attachment-blog-post-thumb wp-post-image" alt="news-2"/> </a>
+                                    <h3><a href="{{ route('news') }}" title="Новости">Новости</a></h3>
                                 </figure>
-                                <div class="text-content clearfix">
-                                    <h5 class="entry-title"><a
-                                                href="https://mensclinic.kz/news/trening-halilja-shajhatdinova-moe-vysshee-ja-mozhet-vse"
-                                                rel="bookmark">Тренинг Халиля Шайхатдинова «Мое высшее Я может Все!!!»
-                                            29-30 октября 2016 Запишись через сайт и получи скидку 5%</a></h5>
-
-                                    <div class="entry-meta">
-                                        <time class="published updated" datetime="2016-09-28T10:55:42+00:00">28 сентября
-                                            2016
-                                        </time>
-
-
+                                @foreach($news as $item)
+                                    <div class="text-content clearfix">
+                                        <div class="col-md-6">
+                                            <h5 class="entry-title"><a
+                                                        href="{{ route('news.read', ['url' => $item->url]) }}"
+                                                        rel="bookmark">{{ $item->title }}</a></h5>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="entry-meta">
+                                                <time class="published updated" datetime="{{ $item->created_at }}">
+                                                    {{ date('d.m.Y', strtotime($item->created_at)) }}
+                                                </time>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="for-border"></div>
-                                    <p>Приглашаем Вас на тренинг "Холодинамика. Мое высшее Я может ВСЕ!!!" в Астане,
-                                        который будет проведён мастером холодинамики -Халилем Шайхатдиновым! 29-30
-                                        октября 2016</p>
-                                </div>
+                                @endforeach
                             </article>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 ">
-                            <article class="common-blog-post hentry animated fadeInRight clearfix">
+                            <article class="hentry animated fadeInRight clearfix">
                                 <figure>
-                                    <a href="https://mensclinic.kz/news/zdorovyj-muzhchina-zdorovaja-nacija"
-                                       title="Image Post Format">
-                                        <img width="732" height="447" src="/event/january.jpg"
-                                             class="attachment-blog-post-thumb wp-post-image" alt="news-2"/> </a>
+                                    <h3><a href="{{ route('articles') }}" title="Статьи">Статьи</a></h3>
                                 </figure>
-                                <div class="text-content clearfix">
-                                    <h5 class="entry-title"><a
-                                                href="https://mensclinic.kz/news/zdorovyj-muzhchina-zdorovaja-nacija"
-                                                rel="bookmark">Акция! Здоровый мужчина – Здоровая нация!</a></h5>
-
-                                    <div class="entry-meta">
-                                        <time class="published updated" datetime="2014-05-10T10:55:42+00:00">22 января
-                                            2016
-                                        </time>
-
-
+                                @foreach($articles as $article)
+                                    <div class="text-content clearfix">
+                                        <div class="col-md-6">
+                                            <h5 class="entry-title"><a
+                                                        href="{{ route('article.read', ['url' => $article->url]) }}"
+                                                        rel="bookmark">{{ $article->title }}</a></h5>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="entry-meta">
+                                                <time class="published updated" datetime="{{ $article->created_at }}">
+                                                    {{ date('d.m.Y', strtotime($article->created_at)) }}
+                                                </time>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="for-border"></div>
-                                    <p>С 25.01.16 по 14.02.16год. Скидка 20% </p>
-                                </div>
+                                @endforeach
                             </article>
-                            <!--                        <a class="read-more" href="/news">Подробнее</a>-->
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 ">
-                            <article class="common-blog-post hentry animated fadeInRight clearfix">
+                            <article class="hentry animated fadeInRight clearfix">
                                 <figure>
-                                    <a href="/news" title="Image Post Format">
-                                        <img width="732" height="447" src="/event/december.png"
-                                             class="attachment-blog-post-thumb wp-post-image" alt="news-2"/> </a>
+                                    <h3><a href="{{ route('videos') }}" title="Видео">Видео</a></h3>
                                 </figure>
-                                <div class="text-content clearfix">
-                                    <h5 class="entry-title"><a href="/news" rel="bookmark">ЭКГ, ЭХО-сердца, Холтер,
-                                            СМАД,
-                                            Велоэргометрия</a></h5>
-
-                                    <div class="entry-meta">
-                                        <time class="published updated" datetime="2014-05-10T10:55:42+00:00">24 декабря
-                                            2015
-                                        </time>
-
-
+                                @foreach($videos as $video)
+                                    <div class="text-content clearfix">
+                                        <div class="col-md-6">
+                                            <h5 class="entry-title"><a
+                                                        href="{{ route('video.read', ['url' => $video->url]) }}"
+                                                        rel="bookmark">{{ $video->title }}</a></h5>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="entry-meta">
+                                                <time class="published updated" datetime="{{ $video->created_at }}">
+                                                    {{ date('d.m.Y', strtotime($video->created_at)) }}
+                                                </time>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="for-border"></div>
-                                    <p>Обследование сердца&hellip; </p>
-                                </div>
+                                @endforeach
                             </article>
                         </div>
                     </div>
