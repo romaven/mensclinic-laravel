@@ -7,10 +7,16 @@ use App\Department;
 use App\Doctor;
 use App\News;
 use App\Video;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
+
+    public function __construct()
+    {
+        Carbon::setLocale('ru');
+    }
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -64,12 +70,16 @@ class SiteController extends Controller
 
     public function news()
     {
+        $news = News::all();
 
+        return view('news', compact('news'));
     }
 
-    public function newsRead()
+    public function newsRead($url)
     {
+        $news = News::where('url', $url)->first();
 
+        return view('news_read', compact('news'));
     }
 
     public function articles()

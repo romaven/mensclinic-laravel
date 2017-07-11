@@ -214,9 +214,9 @@
                             {{--<a href="/service">Услуги</a></li>--}}
                         <li id="menu-item-307" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-307"><a href="#">Публикации</a>
                             <ul class="sub-menu" style="display: none;">
-                                <li id="menu-item-306" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-306"><a href="#">Новости</a></li>
-                                <li id="menu-item-306" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-306"><a href="#">Статьи</a></li>
-                                <li id="menu-item-306" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-306"><a href="#">Видео</a></li>
+                                <li id="menu-item-306" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-306"><a href="{{ route('news') }}">Новости</a></li>
+                                <li id="menu-item-306" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-306"><a href="{{ route('articles') }}">Статьи</a></li>
+                                <li id="menu-item-306" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-306"><a href="{{ route('videos') }}">Видео</a></li>
                             </ul>
                         </li>
                         <li id="menu-item-318"
