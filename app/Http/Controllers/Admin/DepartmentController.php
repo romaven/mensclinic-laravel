@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Department;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\Rule;
 
 /**
  * Class DepartmentController
@@ -47,6 +48,8 @@ class DepartmentController extends Controller
             'url' => 'required|unique:departments',
             'info' => 'required',
             'short' => 'required',
+            'keywords' => 'required',
+            'description' => 'required',
         ], [
             'name.required' => 'Название отделения должно быть заполнено',
             'url.required' => 'Url адрес должен быть заполнен',
@@ -100,9 +103,11 @@ class DepartmentController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'url' => 'required',
+            'url' => ['required', Rule::unique('departments')->ignore($department->id)],
             'info' => 'required',
             'short' => 'required',
+            'keywords' => 'required',
+            'description' => 'required',
         ], [
             'name.required' => 'Название департамента должно быть заполнено',
             'url.required' => 'Url адрес должен быть заполнен',

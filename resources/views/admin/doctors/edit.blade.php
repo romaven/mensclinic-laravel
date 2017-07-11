@@ -79,7 +79,7 @@
                         </div>
                         <div class="form-group col-md-10 col-md-offset-1{{ $errors->has('info') ? ' has-error' : '' }}">
                             <label for="info">Информация о враче</label>
-                            <textarea name="info" id="" rows="5" class="form-control"
+                            <textarea name="info" id="info" rows="5" class="form-control"
                                       placeholder="Информация о враче">{{ $doctor->info }}</textarea>
 
                             @if ($errors->has('info'))
@@ -129,11 +129,16 @@
 @push('scripts')
 <script src="/admin/speakingurl.min.js"></script>
 <script src="/admin/jquery.stringtoslug.js"></script>
+<script src="/admin/plugins/ckeditorNew/ckeditor.js"></script>
 <script>
     $(document).ready(function () {
         $("#full_name").stringToSlug({
             'getPut': '#url'
         });
     });
+
+    $(function () {
+        CKEDITOR.replace('info')
+    })
 </script>
 @endpush

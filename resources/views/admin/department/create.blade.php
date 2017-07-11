@@ -80,7 +80,7 @@
 @push('scripts')
 <script src="/admin/speakingurl.min.js"></script>
 <script src="/admin/jquery.stringtoslug.js"></script>
-<script src="/admin/plugins/ckeditor/ckeditor.js"></script>
+<script src="/admin/plugins/ckeditorNew/ckeditor.js"></script>
 <script>
     $(document).ready(function () {
         $("#name").stringToSlug({

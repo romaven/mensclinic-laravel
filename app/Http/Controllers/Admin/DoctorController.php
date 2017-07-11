@@ -7,6 +7,7 @@ use App\Doctor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 use Intervention\Image\Facades\Image;
 
 class DoctorController extends Controller
@@ -47,6 +48,8 @@ class DoctorController extends Controller
             'full_name' => 'required',
             'url' => 'required|unique:doctors',
             'info' => 'required',
+            'description' => 'required',
+            'keywords' => 'required',
             'specialization' => 'required',
             'photo' => 'image:jpeg,jpg,png',
         ], [
@@ -81,10 +84,10 @@ class DoctorController extends Controller
             'department_id' => $request->get('department_id'),
             'specialization' => $request->get('specialization'),
             'photo' => $path,
-            'show_in_catalog' => $request->get('show_in_catalog'),
-            'show_in_main_page' => $request->get('show_in_main_page'),
-            'description' => $request->get('description'),
-            'keywords' => $request->get('keywords'),
+            'show_in_catalog' => $request->get('show_in_catalog', false),
+            'show_in_main_page' => $request->get('show_in_main_page', false),
+            'description' => $request->get('description', ''),
+            'keywords' => $request->get('keywords', ''),
         ]);
 
         return redirect()->route('doctor.index')->with('success', 'Врач добавлен');
@@ -125,10 +128,12 @@ class DoctorController extends Controller
     {
         $this->validate($request, [
             'full_name' => 'required',
-            'url' => 'required',
+            'url' => ['required', Rule::unique('doctors')->ignore($doctor->id)],
             'info' => 'required',
             'specialization' => 'required',
             'photo' => 'image:jpeg,jpg,png',
+            'keywords' => 'required',
+            'description' => 'required',
         ], [
             'full_name.required' => 'Полное имя врача должно быть заполнено',
             'url.required' => 'Url адрес должен быть заполнен',

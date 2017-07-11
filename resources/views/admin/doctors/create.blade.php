@@ -125,6 +125,7 @@
             'getPut': '#url'
         });
     });
+
     $(function () {
         CKEDITOR.replace('info')
     })
