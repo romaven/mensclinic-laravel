@@ -11,13 +11,24 @@
                     <form action="{{ route('department.store') }}" method="post">
                         {{ csrf_field() }}
                         <div class="form-group col-md-10 col-md-offset-1{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name">Департамент</label>
-                            <input name="name" class="form-control" type="text" placeholder="Департамент"
+                            <label for="name">Отделение (например: Урологическое отделение)</label>
+                            <input name="name" class="form-control" type="text" placeholder="Отделение"
                                    value="{{ old('name') }}" id="name">
 
                             @if ($errors->has('name'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('name') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        <div class="form-group col-md-10 col-md-offset-1{{ $errors->has('short_name') ? ' has-error' : '' }}">
+                            <label for="short_name">Краткое название для входящих врачей (например: Уролог)</label>
+                            <input name="short_name" class="form-control" type="text" placeholder="Краткое название"
+                                   value="{{ old('short_name') }}" id="short_name">
+
+                            @if ($errors->has('short_name'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('short_name') }}</strong>
                                 </span>
                             @endif
                         </div>

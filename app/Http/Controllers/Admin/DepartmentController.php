@@ -45,6 +45,7 @@ class DepartmentController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
+            'short_name' => 'required',
             'url' => 'required|unique:departments',
             'info' => 'required',
             'short' => 'required',
@@ -52,6 +53,7 @@ class DepartmentController extends Controller
             'description' => 'required',
         ], [
             'name.required' => 'Название отделения должно быть заполнено',
+            'short_name.required' => 'Краткое название отделения должно быть заполнено',
             'url.required' => 'Url адрес должен быть заполнен',
             'short.required' => 'Краткое описание должено быть заполнено',
             'info.required' => 'Описание отделения должно быть заполнено',
@@ -60,6 +62,7 @@ class DepartmentController extends Controller
 
         Department::create([
             'name' => $request->get('name'),
+            'short_name' => $request->get('short_name'),
             'url' => $request->get('url'),
             'short' => $request->get('short'),
             'info' => $request->get('info'),
@@ -103,6 +106,7 @@ class DepartmentController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
+            'short_name' => 'required',
             'url' => ['required', Rule::unique('departments')->ignore($department->id)],
             'info' => 'required',
             'short' => 'required',
@@ -110,6 +114,7 @@ class DepartmentController extends Controller
             'description' => 'required',
         ], [
             'name.required' => 'Название департамента должно быть заполнено',
+            'short_name.required' => 'Краткое название департамента должно быть заполнено',
             'url.required' => 'Url адрес должен быть заполнен',
             'short.required' => 'Краткое описание должено быть заполнено',
             'info.required' => 'Описание департамента должно быть заполнено',
@@ -117,6 +122,7 @@ class DepartmentController extends Controller
 
         $department->update([
             'name' => $request->get('name'),
+            'short_name' => $request->get('short_name'),
             'url' => $request->get('url'),
             'short' => $request->get('short'),
             'info' => $request->get('info'),

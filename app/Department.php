@@ -13,7 +13,7 @@ class Department extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'description', 'url', 'short', 'info', 'keywords'];
+    protected $fillable = ['name', 'short_name', 'description', 'url', 'short', 'info', 'keywords'];
 
     protected static function boot()
     {

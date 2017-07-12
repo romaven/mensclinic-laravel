@@ -12,13 +12,24 @@
                         {{ csrf_field() }}
                         {{ method_field('PUT') }}
                         <div class="form-group col-md-10 col-md-offset-1{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name">Департамент</label>
-                            <input name="name" class="form-control" type="text" placeholder="Департамент"
+                            <label for="name">Отделение</label>
+                            <input name="name" class="form-control" type="text" placeholder="Отделение"
                                    value="{{ $department->name }}" id="name">
 
                             @if ($errors->has('name'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('name') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        <div class="form-group col-md-10 col-md-offset-1{{ $errors->has('short_name') ? ' has-error' : '' }}">
+                            <label for="short_name">Краткое название для входящих врачей (например: Уролог)</label>
+                            <input name="short_name" class="form-control" type="text" placeholder="Краткое название"
+                                   value="{{ $department->short_name }}" id="short_name">
+
+                            @if ($errors->has('short_name'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('short_name') }}</strong>
                                 </span>
                             @endif
                         </div>
