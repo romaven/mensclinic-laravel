@@ -127,18 +127,22 @@
             </div>
 
             <div class="row">
-                <section class="single-feature clearfix col-lg-4 col-md-4 col-sm-6 ">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-3  text-center feature-icon">
-                            <i class="fa fa-venus-mars med-icon"></i>
-                        </div>
-                        <div class="col-lg-9 col-md-9 col-sm-9 ">
-                            <h5><a href="https://mensclinic.kz/department/urology">Отделение Урологии</a></h5>
+                @foreach($departments as $department)
+                    <section class="single-feature clearfix col-lg-4 col-md-4 col-sm-6 ">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3  text-center feature-icon">
+                                <i class="fa fa-venus-mars med-icon"></i>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 ">
+                                <h5>
+                                    <a href="{{ route('department', ['url' => $department->url]) }}">{{ $department->name }}</a>
+                                </h5>
 
-                            <p>Описание отделения</p>
+                                <p>{{ $department->short }}</p>
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                @endforeach
                 <section class="single-feature clearfix col-lg-4 col-md-4 col-sm-6 ">
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-3  text-center feature-icon">
@@ -322,17 +326,12 @@
                         </div>
                     </div>
                 </section>
-
                 <div class="visible-lg clearfix"></div>
                 <div class="visible-md clearfix"></div>
             </div>
-
         </div>
     </div>
-
-
     <div class="home-doctors  clearfix">
-
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 ">
@@ -351,14 +350,9 @@
                                     class="small">{{ $doctor->specialization }}</span><br>{{ $doctor->full_name }}
                         </div>
                     @endforeach
-
                 </div>
-
-
             </div>
-
         </div>
-
     </div>
     <div class="home-blog text-center clearfix">
         <div class="container">

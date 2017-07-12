@@ -23,6 +23,7 @@ Route::get('article/{url}', 'SiteController@articleRead')->name('article.read');
 Route::get('articles', 'SiteController@articles')->name('articles');
 Route::get('video/{url}', 'SiteController@videoRead')->name('video.read');
 Route::get('videos', 'SiteController@videos')->name('videos');
+Route::get('department/{url}', 'SiteController@department')->name('department');
 
 Auth::routes();
 

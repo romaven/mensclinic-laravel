@@ -17,6 +17,7 @@ class SiteController extends Controller
     {
         Carbon::setLocale('ru');
     }
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -26,8 +27,9 @@ class SiteController extends Controller
         $news = News::where('is_published', 1)->get();
         $articles = Article::where('is_published', 1)->get();
         $videos = Video::where('is_published', 1)->get();
+        $departments = Department::all();
 
-        return view('welcome', compact('doctors', 'news', 'articles', 'videos'));
+        return view('welcome', compact('doctors', 'news', 'articles', 'videos', 'departments'));
     }
 
     /**
@@ -104,5 +106,13 @@ class SiteController extends Controller
     public function videoRead()
     {
 
+    }
+
+    public function department($url)
+    {
+        $department = Department::where('url', $url)->firstOrFail();
+        $doctors = $department->doctors;
+
+        return view('department', compact('department', 'doctors'));
     }
 }

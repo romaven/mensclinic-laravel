@@ -30,7 +30,7 @@
                         <li class="active"><a href="#" onclick="return false;" data-filter="*">Все отделения</a></li>
                         @foreach($departments as $department)
                             <li><a href="#" onclick="return false;"
-                                   data-filter=".{{ $department->url }}">{{ $department->name }}</a></li>
+                                   data-filter=".{{ $department->url }}">{{ $department->short_name }}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -80,5 +80,4 @@
             </div>
         </div>
     </div>
-
 @endsection

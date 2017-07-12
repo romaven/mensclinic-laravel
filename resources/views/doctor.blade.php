@@ -9,7 +9,7 @@
                     <h2>Доктор</h2>
                     <nav class="bread-crumb">
                         <ul class="breadcrumb clearfix">
-                            <li><a href="https://mensclini.kz">Mens Clinic</a><span class="divider"></span></li>
+                            <li><a href="{{ route('site.main') }}">Mens Clinic</a><span class="divider"></span></li>
                             <li class="active">{{ $doctor->full_name }}</li>
                         </ul>
                     </nav>
@@ -45,9 +45,9 @@
                             <div class="entry-content">
                                 <p>
                                 <h3>{{ $doctor->short }}</h3>
-                                <p>Стаж работы более {{ (date('Y') - $doctor->experiance) }}</p>
+                                <p>Стаж работы более {{ (date('Y') - $doctor->experience) }} лет</p>
                                 <p>
-                                    {{ $doctor->info }}
+                                    {!! $doctor->info !!}
                                 </p>
                             </div>
                         </div>
