@@ -1,4 +1,4 @@
-@extends('layouts.app', ['menu' => 'doctors'])
+@extends('layouts.app', ['menu' => 'doctors', 'title' => 'Наши специалисты'])
 
 @section('content')
     <div class="banner clearfix"

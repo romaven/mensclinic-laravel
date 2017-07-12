@@ -1,4 +1,4 @@
-@extends('layouts.app', ['menu' => 'main'])
+@extends('layouts.app', ['menu' => 'main', 'title' => $news->title])
 
 @section('content')
     <div class=" clearfix"

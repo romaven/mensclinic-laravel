@@ -1,4 +1,4 @@
-@extends('layouts.app', ['menu' => 'doctors'])
+@extends('layouts.app', ['menu' => 'doctors', 'title' => $doctor->full_name])
 
 @section('content')
     <!--<div class="banner clearfix" style="background-repeat: no-repeat; background-position: center top; background-image: url('/images/kutenko-irina-vladimirovna.jpg'); background-size: cover;"></div>-->

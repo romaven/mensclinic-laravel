@@ -1,4 +1,4 @@
-@extends('layouts.app', ['menu' => 'contact'])
+@extends('layouts.app', ['menu' => 'contact', 'title' => 'Контактная информация'])
 
 @section('content')
     <div class="banner clearfix"

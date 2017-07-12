@@ -1,4 +1,4 @@
-@extends('layouts.app', ['menu' => 'department', 'title' => $doctor->full_name])
+@extends('layouts.app', ['menu' => 'department', 'title' => $department->name])
 
 @section('content')
     <div class="banner clearfix"
@@ -20,7 +20,7 @@
 
     <div class="services-page clearfix">
         <div class="container">
-            @if(count($doctors) > 0)
+            @if(count($doctors) != 0)
                 <div class="row text-center">
                     @foreach($doctors as $doctor)
                         <div class="isotope-item cardio-clinic primary-health-care col-lg-3 col-md-4 col-sm-6">
