@@ -36,4 +36,5 @@ Route::group([
     Route::resource('doctor', 'DoctorController');
     Route::resource('department', 'DepartmentController');
     Route::resource('news', 'NewsController');
+    Route::resource('articles', 'ArticlesController');
 });

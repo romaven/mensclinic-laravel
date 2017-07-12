@@ -84,12 +84,16 @@ class SiteController extends Controller
 
     public function articles()
     {
+        $articles = Article::all();
 
+        return view('articles', compact('articles'));
     }
 
-    public function articleRead()
+    public function articleRead($url)
     {
+        $article = Article::where('url', $url)->first();
 
+        return view('article_read', compact('article'));
     }
 
     public function videos()
