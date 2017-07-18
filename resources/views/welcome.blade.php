@@ -143,6 +143,9 @@
                         </div>
                     </section>
                     <div class="visible-sm clearfix"></div>
+                    @if($loop->iteration % 3 == 0)
+                        <div class="visible-sm clearfix"></div>
+                    @endif
                 @endforeach
             </div>
         </div>
