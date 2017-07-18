@@ -195,17 +195,15 @@
                                 </figure>
                                 @foreach($news as $item)
                                     <div class="text-content clearfix">
-                                        <div class="col-md-6">
-                                            <h5 class="entry-title"><a
-                                                        href="{{ route('news.read', ['url' => $item->url]) }}"
-                                                        rel="bookmark">{{ $item->title }}</a></h5>
-                                        </div>
-                                        <div class="col-md-6">
+                                        <div class="col-lg-12 text-left">
                                             <div class="entry-meta">
                                                 <time class="published updated" datetime="{{ $item->created_at }}">
                                                     {{ date('d.m.Y', strtotime($item->created_at)) }}
                                                 </time>
                                             </div>
+                                            <h6 class="entry-title">
+                                                <a href="{{ route('news.read', ['url' => $item->url]) }}">{{ $item->title }}</a>
+                                            </h6>
                                         </div>
                                     </div>
                                 @endforeach
@@ -218,17 +216,15 @@
                                 </figure>
                                 @foreach($articles as $article)
                                     <div class="text-content clearfix">
-                                        <div class="col-md-6">
-                                            <h5 class="entry-title"><a
-                                                        href="{{ route('article.read', ['url' => $article->url]) }}"
-                                                        rel="bookmark">{{ $article->title }}</a></h5>
-                                        </div>
-                                        <div class="col-md-6">
+                                        <div class="col-lg-12 text-left">
                                             <div class="entry-meta">
                                                 <time class="published updated" datetime="{{ $article->created_at }}">
                                                     {{ date('d.m.Y', strtotime($article->created_at)) }}
                                                 </time>
                                             </div>
+                                            <h6 class="entry-title">
+                                                <a href="{{ route('article.read', ['url' => $article->url]) }}">{{ $article->title }}</a>
+                                            </h6>
                                         </div>
                                     </div>
                                 @endforeach
@@ -241,17 +237,15 @@
                                 </figure>
                                 @foreach($videos as $video)
                                     <div class="text-content clearfix">
-                                        <div class="col-md-6">
-                                            <h5 class="entry-title"><a
-                                                        href="{{ route('video.read', ['url' => $video->url]) }}"
-                                                        rel="bookmark">{{ $video->title }}</a></h5>
-                                        </div>
-                                        <div class="col-md-6">
+                                        <div class="col-lg-12 text-left">
                                             <div class="entry-meta">
                                                 <time class="published updated" datetime="{{ $video->created_at }}">
                                                     {{ date('d.m.Y', strtotime($video->created_at)) }}
                                                 </time>
                                             </div>
+                                            <h6 class="entry-title">
+                                                <a href="{{ route('video.read', ['url' => $video->url]) }}">{{ $video->title }}</a>
+                                            </h6>
                                         </div>
                                     </div>
                                 @endforeach
