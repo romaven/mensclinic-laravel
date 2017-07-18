@@ -61,7 +61,7 @@
                                 <figure>
                                     <a href="/doctor/{{ $doctor->url }}"
                                        title="{{ $doctor->full_name }}">
-                                        <img width="670" height="500" src="/images/doctors/thumb-{{ $doctor->photo }}"
+                                        <img src="/images/doctors/{{ $doctor->photo }}"
                                              class="attachment-gallery-post-single wp-post-image"
                                              alt="{{ $doctor->full_name }}"/> </a>
                                 </figure>

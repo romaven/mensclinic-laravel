@@ -167,7 +167,7 @@
                 <div class="owl-carousel">
                     @foreach($doctors as $doctor)
                         <div>&nbsp;
-                            <img src="/images/doctors/thumb-{{ $doctor->photo }}"
+                            <img src="/images/doctors/{{ $doctor->photo }}"
                                  class="attachment-gallery-post-single wp-post-image"
                                  alt="{{ $doctor->full_name }}"/><br><span
                                     class="small">{{ $doctor->specialization }}</span><br>{{ $doctor->full_name }}
