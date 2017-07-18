@@ -28,7 +28,7 @@
                                 <div class="left_meta clearfix entry-meta">
                                     <time class="entry-date published updated"
                                           datetime="{{ date('d.m.Y', strtotime($article->created_at)) }}">
-                                        <strong>{{ date('m', strtotime($article->created_at)) }}</strong>{{ __('dates.'.strtolower(date('F', strtotime($article->created_at)))) }}
+                                        <strong>{{ date('d', strtotime($article->created_at)) }}</strong>{{ __('dates.'.strtolower(date('F', strtotime($article->created_at)))) }}
                                     </time>
                                 </div>
                                 <div class="right-contents">
