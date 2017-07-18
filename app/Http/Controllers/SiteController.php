@@ -24,9 +24,9 @@ class SiteController extends Controller
     public function index()
     {
         $doctors = Doctor::where('show_in_main_page', 1)->get();
-        $news = News::where('is_published', 1)->orderBy('created_at', 'desc')->get();
-        $articles = Article::where('is_published', 1)->orderBy('created_at', 'desc')->get();
-        $videos = Video::where('is_published', 1)->orderBy('created_at', 'desc')->get();
+        $news = News::where('is_published', 1)->orderBy('created_at', 'desc')->take(5)->get();
+        $articles = Article::where('is_published', 1)->orderBy('created_at', 'desc')->take(5)->get();
+        $videos = Video::where('is_published', 1)->orderBy('created_at', 'desc')->take(5)->get();
         $departments = Department::all();
 
         return view('welcome', compact('doctors', 'news', 'articles', 'videos', 'departments'));
@@ -72,7 +72,7 @@ class SiteController extends Controller
 
     public function news()
     {
-        $news = News::all();
+        $news = News::where('is_published', 1)->orderBy('created_at', 'desc')->take(5)->get();
 
         return view('news', compact('news'));
     }
@@ -86,7 +86,7 @@ class SiteController extends Controller
 
     public function articles()
     {
-        $articles = Article::all();
+        $articles = Article::where('is_published', 1)->orderBy('created_at', 'desc')->take(5)->get();
 
         return view('articles', compact('articles'));
     }
