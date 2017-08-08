@@ -82,7 +82,7 @@
 
                     <div class="appointment-form clearfix animated">
                         <form class="clearfix" action="" method="post">
-                            {{--{{ csrf_token() }}--}}
+                            {{ csrf_field() }}
                             <div class="col-lg-4 col-md-4 col-sm-6  common">
                                 <input type="text" name="name" id="app-name" class="required" placeholder="Имя"/>
                             </div>
@@ -121,7 +121,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 ">
                     <div class="slogan-section clearfix">
-                        <h2>Наши услуги<h2>Мы заботимся о вашем здоровье</h2>
+                        <h2>Мы заботимся о вашем здоровье</h2>
                     </div>
                 </div>
             </div>
