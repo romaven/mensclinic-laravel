@@ -81,7 +81,7 @@
                 <div class="clearfix">
 
                     <div class="appointment-form clearfix animated">
-                        <form class="clearfix" action="" method="post">
+                        <form class="clearfix" action="{{ route('appointment') }}" method="post">
                             {{ csrf_field() }}
                             <div class="col-lg-4 col-md-4 col-sm-6  common">
                                 <input type="text" name="name" id="app-name" class="required" placeholder="Имя"/>
@@ -93,7 +93,7 @@
                                 <input type="text" name="date" id="datepicker" placeholder="Дата приема"/>
                             </div>
                             <div class="col-lg-10 col-md-10 col-sm-10 common">
-                                <input type="text" name="message" id="app-message" class="required"
+                                <input type="text" name="department" id="app-message" class="required"
                                        placeholder="Отделение или врач"/>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 common">

@@ -24,6 +24,7 @@ Route::get('articles', 'SiteController@articles')->name('articles');
 Route::get('video/{url}', 'SiteController@videoRead')->name('video.read');
 Route::get('videos', 'SiteController@videos')->name('videos');
 Route::get('department/{url}', 'SiteController@department')->name('department');
+Route::post('appointment', 'MailController@appointment')->name('appointment');
 
 Auth::routes();
 
