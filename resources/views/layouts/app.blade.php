@@ -233,7 +233,8 @@
             <div class="col-lg-2 col-md-2 col-sm-12">
                 <div style="margin-top: 15px; color: #579e41;">
                     +7 (7172) 37 50 55 <br>
-                    +7 (701) 888 5416
+                    +7 (701) 888 54 16 <br>
+                    <a href="https://www.instagram.com/mensclinic_astana/" target="_blank">Мы в Instagram <i class="fa fa-instagram"></i></a>
                 </div>
             </div>
         </div>
@@ -322,6 +323,8 @@
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12  clearfix">
                                 <ul class="footer-social-nav">
+                                    <li><a target="_blank" href="https://www.instagram.com/mensclinic_astana"><i
+                                                    class="fa fa-instagram"></i></a></li>
                                     <li><a target="_blank" href="https://twitter.com/mensclinickz"><i
                                                     class="fa fa-twitter"></i></a></li>
                                     <li><a target="_blank" href="https://www.facebook.com/mensclinic.kz"><i
